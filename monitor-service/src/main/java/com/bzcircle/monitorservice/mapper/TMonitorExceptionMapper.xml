@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bzcircle.monitorservice.dao.TMonitorExceptionMapper">
+
+    <resultMap id="BaseResultMap" type="com.bzcircle.monitorservice.model.TMonitorException" >
+        <result column="id" property="id" />
+        <result column="service_type" property="serviceType" />
+        <result column="interface_path" property="interfacePath" />
+        <result column="exception_type" property="exceptionType" />
+        <result column="exception_code" property="exceptionCode" />
+        <result column="exception_message" property="exceptionMessage" />
+        <result column="thread_id" property="threadId" />
+        <result column="trance_id" property="tranceId" />
+        <result column="produce_time" property="produceTime" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+                service_type,
+                interface_path,
+                exception_type,
+                exception_code,
+                exception_message,
+                thread_id,
+                trance_id,
+                produce_time,
+                create_time
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.bzcircle.monitorservice.model.TMonitorException">
+        INSERT INTO t_monitor_exception
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != serviceType and '' != serviceType">
+                service_type,
+            </if>
+            <if test="null != interfacePath and '' != interfacePath">
+                interface_path,
+            </if>
+            <if test="null != exceptionType and '' != exceptionType">
+                exception_type,
+            </if>
+            <if test="null != exceptionCode and '' != exceptionCode">
+                exception_code,
+            </if>
+            <if test="null != exceptionMessage and '' != exceptionMessage">
+                exception_message,
+            </if>
+            <if test="null != threadId and '' != threadId">
+                thread_id,
+            </if>
+            <if test="null != tranceId and '' != tranceId">
+                trance_id,
+            </if>
+            <if test="null != produceTime and '' != produceTime">
+                produce_time,
+            </if>
+            <if test="null != createTime ">
+                create_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="null != serviceType and '' != serviceType">
+                #{serviceType},
+            </if>
+            <if test="null != interfacePath and '' != interfacePath">
+                #{interfacePath},
+            </if>
+            <if test="null != exceptionType and '' != exceptionType">
+                #{exceptionType},
+            </if>
+            <if test="null != exceptionCode and '' != exceptionCode">
+                #{exceptionCode},
+            </if>
+            <if test="null != exceptionMessage and '' != exceptionMessage">
+                #{exceptionMessage},
+            </if>
+            <if test="null != threadId and '' != threadId">
+                #{threadId},
+            </if>
+            <if test="null != tranceId and '' != tranceId">
+                #{tranceId},
+            </if>
+            <if test="null != produceTime and '' != produceTime">
+                #{produceTime},
+            </if>
+            <if test="null != createTime ">
+                #{createTime}
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
